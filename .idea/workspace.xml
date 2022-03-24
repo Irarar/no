@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1500753f-d267-4ba4-959d-9ccfb7996643" name="Changes" comment="" />
+    <list default="true" id="1500753f-d267-4ba4-959d-9ccfb7996643" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="8250215e-f854-41ef-83cd-c954ceb5e66d" />
   </component>
   <component name="ProjectId" id="25Sv917oKqPIwvjxapaE55E6mID" />
   <component name="ProjectViewState">
@@ -20,6 +28,7 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -31,6 +40,8 @@
       <option name="presentableId" value="Default" />
       <updated>1645533148293</updated>
       <workItem from="1645533149396" duration="25000" />
+      <workItem from="1648118032920" duration="246000" />
+      <workItem from="1648118302396" duration="77000" />
     </task>
     <servers />
   </component>
