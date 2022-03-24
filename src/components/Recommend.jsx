@@ -47,34 +47,30 @@ export default function Recommend() {
     },
   ];
 
-  const packages = [
-    "Пакетный отпуск",
-    "Групповой тур",
-    "Долгосрочное медленное путешествие",
-  ];
+  const [value, setValue] = useState('')
 
-  const [active, setActive] = useState(1);
+  const filtered = data.filter(title => {
+    return title.title.toLowerCase().includes(value.toLowerCase())
+  })
+
   return (
     <Section id="recommend">
       <div className="title">
         <h2>Рекомендуемые направления</h2>
       </div>
-      <div className="packages">
-        <ul>
-          {packages.map((pkg, index) => {
-            return (
-              <li
-                className={active === index + 1 ? "active" : ""}
-                onClick={() => setActive(index + 1)}
-              >
-                {pkg}
-              </li>
-            );
-          })}
-        </ul>
+      <div className="search">
+        <div className="container">
+          <label htmlFor="">Где ты хочешь отдохнуть?</label>
+          <input
+              id="search"
+              type="text"
+              placeholder="Поиск вашего местоположение"
+              onChange={(event => setValue(event.target.value))}
+          />
+        </div>
       </div>
       <div className="destinations">
-        {data.map((destination) => {
+        {filtered.map((destination) => {
           return (
             <div className="destination">
               <img src={destination.image} alt="" />
@@ -95,21 +91,41 @@ const Section = styled.section`
   padding: 2rem 0;
   .title {
     text-align: center;
+    padding-bottom: 15px;
   }
-  .packages {
+  .search {
+    margin-bottom: 15px;
     display: flex;
-    justify-content: center;
-    margin: 2rem 0;
-    ul {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+    .container {
       display: flex;
-      list-style-type: none;
-      width: max-content;
-      li {
-        padding: 1rem 2rem;
-        border-bottom: 0.1rem solid black;
+      align-items: center;
+      background-color: #f5f0fe;
+      border-radius: 0.5rem;
+      justify-content: center;
+      flex-direction: column;
+      padding: 1rem 1.5rem;
+
+      label {
+        font-size: 1.1rem;
+        color: #03045e;
       }
-      .active {
-        border-bottom: 0.5rem solid #8338ec;
+
+      input {
+        background-color: transparent;
+        border: none;
+        text-align: center;
+        color: black;
+
+        &::placeholder {
+          color: black;
+        }
+
+        &:focus {
+          outline: none;
+        }
       }
     }
   }
@@ -157,17 +173,22 @@ const Section = styled.section`
     }
   }
   @media screen and (min-width: 280px) and (max-width: 768px) {
-    .packages {
-      ul {
-        li {
-          padding: 0 0.5rem;
-          font-size: 2vh;
-          padding-bottom: 1rem;
-        }
-        .active {
-          border-bottom-width: 0.3rem;
+    .search {
+      flex-direction: column;
+      padding: 0.8rem;
+      gap: 0.8rem;  
+      /* padding: 0; */
+      .container {
+        padding: 1rem 0.8rem;
+        input[type="date"] {
+          padding-left: 1rem;
         }
       }
+      button {
+        padding: 1rem;
+        font-size: 1rem;
+      }
+      /* display: none; */
     }
     .destinations {
       grid-template-columns: 1fr;

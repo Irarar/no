@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { BsFacebook } from "react-icons/bs";
-import { AiFillInstagram } from "react-icons/ai";
 export default function Footer() {
   return (
     <FooterContainer>
@@ -17,14 +15,6 @@ export default function Footer() {
         </li>
         <li>
           <a href="#testimonials">Отзывы</a>
-        </li>
-      </ul>
-      <ul className="social__links">
-        <li>
-          <BsFacebook />
-        </li>
-        <li>
-          <AiFillInstagram />
         </li>
       </ul>
     </FooterContainer>

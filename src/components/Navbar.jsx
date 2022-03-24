@@ -3,65 +3,108 @@ import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
+
+import TextField from "@material-ui/core/TextField"
+import Dialog from "@material-ui/core/Dialog"
+import DialogTitle from "@material-ui/core/DialogTitle"
+import DialogContent from "@material-ui/core/DialogContent"
+import DialogActions from "@material-ui/core/DialogActions"
+import DialogContentText from "@material-ui/core/DialogContentText"
+import {Button} from "@material-ui/core";
+
 export default function Navbar() {
   const [navbarState, setNavbarState] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  }
+  const handleClose = () => {
+    setOpen(false);
+  }
   return (
-    <>
-      <Nav>
-        <div className="brand">
-          <div className="container">
-            <img src={logo} alt="" />
+      <>
+        <Nav>
+          <div className="brand">
+            <div className="container">
+              <img src={logo} alt="" />
+            </div>
+            <div className="toggle">
+              {navbarState ? (
+                  <VscChromeClose onClick={() => setNavbarState(false)} />
+              ) : (
+                  <GiHamburgerMenu onClick={() => setNavbarState(true)} />
+              )}
+            </div>
           </div>
-          <div className="toggle">
-            {navbarState ? (
-              <VscChromeClose onClick={() => setNavbarState(false)} />
-            ) : (
-              <GiHamburgerMenu onClick={() => setNavbarState(true)} />
-            )}
-          </div>
-        </div>
 
-        <ul>
-          <li>
-            <a href="#home">Домой</a>
-          </li>
-          <li>
-            <a href="#services">О нас</a>
-          </li>
-          <li>
-            <a href="#recommend">Места</a>
-          </li>
-          <li>
-            <a href="#testimonials">Отзывы</a>
-          </li>
-        </ul>
-        <button className='open-btn'>Войти</button>
-      </Nav>
-      <ResponsiveNav state={navbarState}>
-        <ul>
-          <li>
-            <a href="#home" onClick={() => setNavbarState(false)}>
-              Домой
-            </a>
-          </li>
-          <li>
-            <a href="#services" onClick={() => setNavbarState(false)}>
-              О нас
-            </a>
-          </li>
-          <li>
-            <a href="#recommend" onClick={() => setNavbarState(false)}>
-              Места
-            </a>
-          </li>
-          <li>
-            <a href="#testimonials" onClick={() => setNavbarState(false)}>
-              Отзывы
-            </a>
-          </li>
-        </ul>
-      </ResponsiveNav>
-    </>
+          <ul>
+            <li>
+              <a href="#home">Домой</a>
+            </li>
+            <li>
+              <a href="#services">О нас</a>
+            </li>
+            <li>
+              <a href="#recommend">Места</a>
+            </li>
+            <li>
+              <a href="#testimonials">Отзывы</a>
+            </li>
+          </ul>
+          <Button onClick={handleClickOpen}>Войти</Button>
+
+          <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+            <DialogTitle id="form-dialog-title">Авторизация</DialogTitle>
+            <DialogContent>
+              <DialogContentText>Введите адрес электрнной почты и пароль<br/> для входа в аккаунт</DialogContentText>
+              <TextField
+                  autoFocus
+                  margin="dense"
+                  id="name"
+                  label="Email"
+                  type="email"
+                  fullWidth
+              />
+              <TextField
+                  autoFocus
+                  margin="dense"
+                  id="pass"
+                  label="Password"
+                  type="password"
+                  fullWidth
+              />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose} color="primary">Закрыть</Button>
+              <Button onClick={handleClose} color="primary">Войти</Button>
+            </DialogActions>
+          </Dialog>
+        </Nav>
+        <ResponsiveNav state={navbarState}>
+          <ul>
+            <li>
+              <a href="#home" onClick={() => setNavbarState(false)}>
+                Домой
+              </a>
+            </li>
+            <li>
+              <a href="#services" onClick={() => setNavbarState(false)}>
+                О нас
+              </a>
+            </li>
+            <li>
+              <a href="#recommend" onClick={() => setNavbarState(false)}>
+                Места
+              </a>
+            </li>
+            <li>
+              <a href="#testimonials" onClick={() => setNavbarState(false)}>
+                Отзывы
+              </a>
+            </li>
+          </ul>
+        </ResponsiveNav>
+      </>
   );
 }
 
@@ -157,7 +200,6 @@ const ResponsiveNav = styled.div`
       width: 100%;
       margin: 1rem 0;
       margin-left: 2rem;
-
       a {
         text-decoration: none;
         color: #0077b6;

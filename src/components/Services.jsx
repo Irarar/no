@@ -1,27 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import service1 from "../assets/service1.png";
-import service2 from "../assets/service2.png";
-import service3 from "../assets/service3.png";
-import service4 from "../assets/service4.png";
+import about1 from "../assets/Support.svg"
+import about2 from "../assets/Communicate.svg"
+import about3 from "../assets/Book.svg"
+import about4 from "../assets/Reviews.svg"
 
 export default function Services() {
   const data = [
     {
-      icon: service1,
-      title: "Получите лучшие цены",
+      icon: about1,
     },
     {
-      icon: service2,
-      title: "Covid Safe",
+      icon: about2,
     },
     {
-      icon: service3,
-      title: "Гибкая оплата",
+      icon: about3,
     },
     {
-      icon: service4,
-      title: "Найдите лучшее рядом с вами",
+      icon: about4,
     },
   ];
   return (
@@ -33,7 +29,6 @@ export default function Services() {
               <img src={service.icon} alt="" />
             </div>
             <h3>{service.title}</h3>
-            <p>{service.subTitle}</p>
           </div>
         );
       })}
@@ -59,6 +54,7 @@ const Section = styled.section`
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
     .icon {
+      text-align: center;
       img {
         height: 2.4rem;
       }
